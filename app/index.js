@@ -20,7 +20,7 @@ app.get('/health', function (req, res) {
 
 app.get('/', (req, res) => {
   console.log('GET /', Date.now());
-  fs.readFile('/home/vagrant/node2ConsulService/app/index.html', function (err, data) {
+  fs.readFile('/home/vagrant/node1ConsulService/app/index.html', function (err, data) {
       if (err) throw err;
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(data);
