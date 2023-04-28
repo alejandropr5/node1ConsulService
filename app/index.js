@@ -12,16 +12,6 @@ const PID = process.pid;
 /* Inicializacion del server */
 const app = express();
 const consul = new Consul();
-const html = `<!DOCTYPE html>
-            <html>
-            <head>
-                <title>My Website</title>
-            </head>
-            <body>
-                <h1>Hello from web1</h1>
-                <p>Welcome to my website!</p>
-            </body>
-            </html>`;
 
 app.get('/health', function (req, res) {
     console.log('Health check!');
@@ -30,7 +20,7 @@ app.get('/health', function (req, res) {
 
 app.get('/', (req, res) => {
   console.log('GET /', Date.now());
-  fs.readFile('index.html', function (err, data) {
+  fs.readFile('/home/vagrant/node2ConsulService/app/index.html', function (err, data) {
       if (err) throw err;
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(data);
